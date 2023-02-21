@@ -33,11 +33,19 @@ function count_letters(letters) {
 function count_sentences(sentences) {
   let count = 0;
   let arr = sentences.split(".");
+  let lastElem = sentences.slice(-1)
   for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i + 1] === " " + arr[i + 1].charAt(1).toUpperCase() + arr[i+1].slice(2)) {
+    if (
+      arr[i + 1] ===
+      " " + arr[i + 1].charAt(1).toUpperCase() + arr[i + 1].slice(2)
+    ) {
       count++;
     }
   }
+  if (lastElem === "." || lastElem === "?" || lastElem === "!" || lastElem === "...") {
+    count++;
+  }
+  console.log(lastElem);
   return count;
 }
 
